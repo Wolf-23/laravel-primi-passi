@@ -14,5 +14,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    $hello = 'Hello World';
+    $firstLaravel = 'Questo è il mio primo codice in Laravel';
+    return view('home', [
+        'helloView' => $hello,
+        'laravelView' => $firstLaravel
+    ]);
+})->name('home');
+
+
+Route::get('/secondpage', function() {
+    $secondText = 'Questa è la mia seconda pagina!';
+    $secondParagh = 'Questo è il paragrafo della seconda pagina!';
+    return view('secondPage', [
+        'secondView' => $secondText,
+        'secondParagh' => $secondParagh
+    ]);
+})->name('second');
+
+Route::get('/thirdpage', function() {
+    $thirdText = 'Questa è la mia terza pagina!';
+    return view('thirdPage', [
+        'thirdView' => $thirdText
+    ]);
+})->name('third');
